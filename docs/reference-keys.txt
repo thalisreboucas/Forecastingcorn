@@ -1,0 +1,14 @@
+do-ano-de-2005-a-2021
+por-mês-com-os-anos-separados
+diferença-entre-os-meses
+treino-dos-dados-para-as-previsões
+tipos-de-previsões
+arima
+ets
+stl-ets
+nnar
+tbats
+combination
+todas-a-previsões-juntas
+acurácia-das-previsões
+arima-e-stl

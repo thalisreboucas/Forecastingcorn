@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Previsões sobre o Preço do Milho</title>
-  <meta name="description" content="Previsões sobre o Preço do Milho" />
+  <title>Conclusão | Previsões sobre o Preço do Milho</title>
+  <meta name="description" content="Conclusão | Previsões sobre o Preço do Milho" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Previsões sobre o Preço do Milho" />
+  <meta property="og:title" content="Conclusão | Previsões sobre o Preço do Milho" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Previsões sobre o Preço do Milho" />
+  <meta name="twitter:title" content="Conclusão | Previsões sobre o Preço do Milho" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="banco-de-dados.html"/>
+<link rel="prev" href="analise-pretitiva.html"/>
+<link rel="next" href="referencias.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -188,23 +188,326 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Previsões sobre o Preço do Milho</h1>
-<p class="author"><em>Thalis Rebouças</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>2021-08-19</em></p>
+<div id="conclusão" class="section level1 unnumbered">
+<h1>Conclusão</h1>
+<p>Tendo Feito as analises acima , o ideal vai ser a ARIMA com STL e a combinação entre eles.</p>
+<div id="arima-e-stl" class="section level2" number="0.6">
+<h2><span class="header-section-number">0.6</span> ARIMA e STL</h2>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="conclusão.html#cb60-1" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> <span class="fu">window</span>(df_ts ,<span class="at">start=</span><span class="fu">c</span>(<span class="dv">2020</span>,<span class="dv">1</span>) ,<span class="at">end=</span><span class="fu">c</span>(<span class="dv">2021</span>,<span class="dv">6</span>) )</span>
+<span id="cb60-2"><a href="conclusão.html#cb60-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-3"><a href="conclusão.html#cb60-3" aria-hidden="true" tabindex="-1"></a>Prev_Arima <span class="ot">&lt;-</span> <span class="fu">forecast</span>(<span class="fu">auto.arima</span>(df_ts, <span class="at">lambda =</span> lambda, <span class="at">biasadj =</span> <span class="cn">TRUE</span>, <span class="at">stepwise =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb60-4"><a href="conclusão.html#cb60-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">approximation =</span> <span class="cn">FALSE</span>), <span class="at">h =</span> <span class="dv">6</span>)</span>
+<span id="cb60-5"><a href="conclusão.html#cb60-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-6"><a href="conclusão.html#cb60-6" aria-hidden="true" tabindex="-1"></a>Prev_STL <span class="ot">&lt;-</span> <span class="fu">stlf</span>(df_ts, <span class="at">lambda =</span> <span class="dv">0</span>, <span class="at">h =</span> <span class="dv">6</span>, <span class="at">biasadj =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb60-7"><a href="conclusão.html#cb60-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-8"><a href="conclusão.html#cb60-8" aria-hidden="true" tabindex="-1"></a>Prev_Comb <span class="ot">&lt;-</span> ( Prev_Arima[[<span class="st">&quot;mean&quot;</span>]] <span class="sc">+</span> Prev_STL[[<span class="st">&quot;mean&quot;</span>]])<span class="sc">/</span><span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="conclusão.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(dt) <span class="sc">+</span> <span class="fu">autolayer</span>(Prev_STL, <span class="at">series =</span> <span class="st">&quot;STL&quot;</span>, <span class="at">PI =</span> F) <span class="sc">+</span> </span>
+<span id="cb61-2"><a href="conclusão.html#cb61-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">autolayer</span>(Prev_Arima ,<span class="at">series =</span> <span class="st">&quot;ARIMA&quot;</span>,<span class="at">PI=</span> F) <span class="sc">+</span></span>
+<span id="cb61-3"><a href="conclusão.html#cb61-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">autolayer</span>(Prev_Comb ,<span class="at">series =</span> <span class="st">&quot;Combinação&quot;</span>,<span class="at">PI=</span> F) <span class="sc">+</span></span>
+<span id="cb61-4"><a href="conclusão.html#cb61-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Ano&quot;</span>) <span class="sc">+</span>  <span class="fu">ylab</span>(<span class="st">&quot;Reais&quot;</span>) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;Previsão do preço do Milho &quot;</span>) <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<pre><code>## Warning: Ignoring unknown parameters: PI</code></pre>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
+<p>Aqui temos os resultados das previsões do Arima</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Point Forecast
+</th>
+<th style="text-align:right;">
+Lo 80
+</th>
+<th style="text-align:right;">
+Hi 80
+</th>
+<th style="text-align:right;">
+Lo 95
+</th>
+<th style="text-align:right;">
+Hi 95
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Jul 2021
+</td>
+<td style="text-align:right;">
+84.82706
+</td>
+<td style="text-align:right;">
+71.20087
+</td>
+<td style="text-align:right;">
+100.0480
+</td>
+<td style="text-align:right;">
+65.79214
+</td>
+<td style="text-align:right;">
+110.9879
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Aug 2021
+</td>
+<td style="text-align:right;">
+87.52075
+</td>
+<td style="text-align:right;">
+64.86811
+</td>
+<td style="text-align:right;">
+114.9824
+</td>
+<td style="text-align:right;">
+57.40185
+</td>
+<td style="text-align:right;">
+139.5951
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sep 2021
+</td>
+<td style="text-align:right;">
+91.70078
+</td>
+<td style="text-align:right;">
+61.76751
+</td>
+<td style="text-align:right;">
+130.5274
+</td>
+<td style="text-align:right;">
+53.14180
+</td>
+<td style="text-align:right;">
+172.0036
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Oct 2021
+</td>
+<td style="text-align:right;">
+94.22213
+</td>
+<td style="text-align:right;">
+58.73256
+</td>
+<td style="text-align:right;">
+143.0529
+</td>
+<td style="text-align:right;">
+49.51810
+</td>
+<td style="text-align:right;">
+203.5930
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Nov 2021
+</td>
+<td style="text-align:right;">
+91.31330
+</td>
+<td style="text-align:right;">
+54.13866
+</td>
+<td style="text-align:right;">
+144.5768
+</td>
+<td style="text-align:right;">
+45.09786
+</td>
+<td style="text-align:right;">
+217.6167
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dec 2021
+</td>
+<td style="text-align:right;">
+97.67899
+</td>
+<td style="text-align:right;">
+53.69637
+</td>
+<td style="text-align:right;">
+164.9416
+</td>
+<td style="text-align:right;">
+43.98030
+</td>
+<td style="text-align:right;">
+273.3406
+</td>
+</tr>
+</tbody>
+</table>
+<p>Aqui temos os resultados das previsões do STL</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Point Forecast
+</th>
+<th style="text-align:right;">
+Lo 80
+</th>
+<th style="text-align:right;">
+Hi 80
+</th>
+<th style="text-align:right;">
+Lo 95
+</th>
+<th style="text-align:right;">
+Hi 95
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Jul 2021
+</td>
+<td style="text-align:right;">
+89.47503
+</td>
+<td style="text-align:right;">
+82.49273
+</td>
+<td style="text-align:right;">
+96.67747
+</td>
+<td style="text-align:right;">
+79.09999
+</td>
+<td style="text-align:right;">
+100.8241
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Aug 2021
+</td>
+<td style="text-align:right;">
+93.20187
+</td>
+<td style="text-align:right;">
+81.67097
+</td>
+<td style="text-align:right;">
+105.32134
+</td>
+<td style="text-align:right;">
+76.35434
+</td>
+<td style="text-align:right;">
+112.6550
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sep 2021
+</td>
+<td style="text-align:right;">
+95.40920
+</td>
+<td style="text-align:right;">
+79.61039
+</td>
+<td style="text-align:right;">
+112.30980
+</td>
+<td style="text-align:right;">
+72.67972
+</td>
+<td style="text-align:right;">
+123.0195
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Oct 2021
+</td>
+<td style="text-align:right;">
+100.08221
+</td>
+<td style="text-align:right;">
+79.58879
+</td>
+<td style="text-align:right;">
+122.37972
+</td>
+<td style="text-align:right;">
+71.02213
+</td>
+<td style="text-align:right;">
+137.1411
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Nov 2021
+</td>
+<td style="text-align:right;">
+103.53919
+</td>
+<td style="text-align:right;">
+78.53933
+</td>
+<td style="text-align:right;">
+131.18814
+</td>
+<td style="text-align:right;">
+68.56676
+</td>
+<td style="text-align:right;">
+150.2686
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dec 2021
+</td>
+<td style="text-align:right;">
+104.80554
+</td>
+<td style="text-align:right;">
+75.90629
+</td>
+<td style="text-align:right;">
+137.27430
+</td>
+<td style="text-align:right;">
+64.88906
+</td>
+<td style="text-align:right;">
+160.5815
+</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="prefácio" class="section level1 unnumbered">
-<h1>Prefácio</h1>
-<hr />
-<p><img src="E:/edime/Thalis/CadernoR/ale/ufc.png" id="id" class="class" style="width:12.0%;height:12.0%" /> <strong>Universidade federal de Fortaleza</strong> | Departamento de Estatística e matemática aplicada</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="banco-de-dados.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="analise-pretitiva.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="referencias.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

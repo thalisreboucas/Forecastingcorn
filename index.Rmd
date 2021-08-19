@@ -1,9 +1,494 @@
---- 
-title: "YOUR TITLE HERE"
-author: "YOUR NAME HERE"
+---
+title: "Previsões sobre o Preço do Milho "
+author: "Thalis Rebouças"
+job         : Estudante
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
+theme: united                   # Tema usado (aparência).
+documentclass: book
+output:
+  
+  bookdown::gitbook: default
+  df_print: paged
+  #bookdown::pdf_book: default
+link-citations: yes
 ---
 
-# Down the rabbit-hole
 
+
+```{r }
+if (!requireNamespace("pacman"))
+  install.packages("pacman")
+
+pacman::p_load(devtools,tidyverse,readxl,plotly,bookdown,here,MASS,skimr,datawizard,lubridate,zoo,dygraphs,forecastHybrid,fpp2,forecast,tsibble,dygraphs,MASS,urca,lmtest,kableExtra,flexdashboard,raincloudplots)   
+# Install & load packages
+```
+
+
+
+# Prefácio {-}
+
+---
+
+![](ufc.png){#id .class width=12% height=12% } **Universidade federal de Fortaleza** | Departamento de Estatística e matemática aplicada
+
+
+# Banco de Dados {-}
+
+Abrindo o banco de dados e visualinzando em modo de tabela.
+
+```{r banco de dados}
+# getwd() Para ver o diretorio 
+
+# abrindo o bd
+
+df <- read_xls("milhots.xls")
+
+# INDICADOR DO MILHO ESALQ/BM&FBOVESPA 1/2005- 6/2021
+```
+
+```{r echo=FALSE, cols.print=2, rows.print=10}
+rmarkdown::paged_table(df)
+```
+
+
+
+Colocando em formado de séries temporais ,pois os dados estão em "chr" . 
+ 
+```{r}
+
+data1 <- as.double(df$Price)
+
+#BD transformados para TS
+
+df_ts <- ts(data = data1 ,start = c(2005,1),end=c(2021,6),frequency = 12)
+
+```
+
+
+
+# Analise Grafica {-}
+
+## Do ano de 2005 a 2021 
+
+```{r echo=FALSE}
+
+
+dygraph(df_ts, main = "Preço do Milho em Reais <br> (Mensal) de 2005 a 2021") %>% 
+    dyAxis("x", drawGrid = TRUE) %>% 
+    dyEvent("2006-1-01", "2006", labelLoc = "bottom")  %>% 
+    dyEvent("2008-1-01", "2008", labelLoc = "bottom")  %>%  
+    dyEvent("2012-1-01", "2012", labelLoc = "bottom")  %>%  
+    dyEvent("2015-1-01", "2015", labelLoc = "bottom")  %>% 
+    dyEvent("2018-1-01", "2018", labelLoc = "bottom") %>% 
+    dyEvent("2021-1-01", "2021", labelLoc = "bottom")  %>% 
+    dyOptions(drawPoints = TRUE, pointSize = 2)
+
+```
+
+
+
+## Por mês com os anos separados
+
+```{r echo=FALSE}
+ggseasonplot(df_ts,year.labels=TRUE, year.labels.left=TRUE) + 
+    theme_minimal() + 
+   ylab("Preço do Milho em Reais (60 kg) ") +
+  xlab("Mês") +
+  ggtitle("Seasonal plot: Preço do Milho em Reias separado por mês") 
+```
+
+
+# Analise Pretitiva {-}
+
+Para isso temos que ver se é uma séries temporal com tendências, ou com sazonalidade, não estacionárias.
+
+## Diferença entre os meses
+
+Fazendo o diff() para ver a diferença do dados se tem alguma tendência .
+
+```{r}
+DY <- diff(df_ts)
+
+autoplot(DY)
+```
+
+```{r}
+
+ggseasonplot(DY)+
+  ggtitle("Diferença entre os meses  ") +
+  ylab("Difernaça do Preço em Reais") +
+  xlab("Mês")+
+  theme_minimal()
+ 
+
+```
+
+```{r}
+ggsubseriesplot(DY) +
+  ylab("Difernça em do Preço Reais") +
+  xlab("Mês") +
+  theme_minimal()
+```
+
+
+
+```{r}
+lambda <- BoxCox.lambda(df_ts)
+ts_bx <- BoxCox(df_ts,lambda)
+```
+
+```{r}
+ggtsdisplay(ts_bx)
+```
+
+
+Diferenciação não sazional 
+
+```{r}
+ndiffs(ts_bx)
+ts_bd <- diff(ts_bx,1)
+```
+
+```{r}
+ggtsdisplay(ts_bd)
+```
+
+
+Diferenciação não sazional 
+
+```{r}
+nsdiffs(ts_bd)
+
+```
+
+
+## Treino dos dados para as Previsões 
+
+Separanado o treino até o ano de 2020 para , ter uma previsão de 1 anos para ver qual modelo que se encaixar melhor para uma futura previsão.
+
+```{r}
+treino <- window(df_ts, start=2005 , end = c(2019,12 ))
+v <- window(df_ts ,start=c(2020,1) )
+```
+
+## Tipos de Previsões
+
+
+### ARIMA
+
+Autoregressive Integrated Moving Average
+
+Utiliza a autocorrelação e médias móveis do passado para prever o futuro. Utilizado em casos que os dados mostram evidências de não estacionariedade
+
+
+Previsão
+
+```{r}
+ARIMA <- forecast(auto.arima(treino, lambda = lambda, biasadj = TRUE, stepwise = FALSE, 
+    approximation = FALSE), h = 18)
+
+
+autoplot(v) + autolayer(ARIMA , PI= F , series = "ARIMA") +
+      ggtitle("Modelo de Previsão: ARIMA ") +
+  ylab("Preço do Milho em Reais (60 kg)") +
+  xlab("Ano") +
+  theme_minimal()
+
+summary(ARIMA)
+
+```
+
+Valores do Modelo
+
+
+```{r}
+autoplot(v) + autolayer(ARIMA , PI= T , series = "ARIMA") +
+      ggtitle("Modelo de Previsão: ARIMA ") +
+  ylab("Preço do Milho em Reais (60 kg)") +
+  xlab("Ano") +
+  theme_minimal()
+
+```
+
+
+```{r echo=FALSE}
+sa <- summary(ARIMA)
+
+sa$model
+
+knitr::kable(sa)
+```
+
+
+
+
+Análise Residual Residual 
+
+```{r}
+checkresiduals(ARIMA)
+```
+
+
+### ETS 
+
+Error Trend Seasonal
+
+É um método de abordagem para prever séries temporais univariadas. Este modelo ETS se concentra em tendências e componentes sazonais. A flexibilidade do modelo ETS reside em sua capacidade de tendência e componentes sazonais de diferentes características. 
+
+```{r}
+ETS <- forecast(ets(treino), h = 18)
+
+autoplot(v) +autolayer(ETS,PI =F) +
+   ggtitle("Modelo de Previsão: ETS ") +
+  ylab("Preço do Milho em Reais (60 kg) ") +
+  xlab("Ano") +
+  theme_minimal()
+```
+
+
+```{r}
+ETS <- forecast(ets(treino), h = 18)
+
+autoplot(v) +autolayer(ETS,PI =T) +
+   ggtitle("Modelo de Previsão: ETS ") +
+  ylab("Preço do Milho em Reais (60 kg)") +
+  xlab("Ano") +
+  theme_minimal()
+```
+
+```{r}
+se <- summary(ETS)
+
+se$model
+
+knitr::kable(se)
+```
+
+
+
+
+Análise Residual Residual 
+
+```{r}
+checkresiduals(ETS)
+```
+
+
+
+
+### STL-ETS
+Seasonal and Trend decomposition using Loess
+
+É divido em tendência, a sazonalidade e o restante.  O STL usa LOESS (suavização de dispersão estimada localmente) para extrair estimativas de suavizar as estimativas dos três componentes.
+
+```{r}
+STL <- stlf(treino, lambda = 0, h = 18, biasadj = TRUE)
+
+autoplot(v) + autolayer(STL, series = "STL", PI = F) + 
+   ggtitle("Modelo de Previsão: STL-ETS ") +
+  ylab("Preço do Milho em Reais (60 kg)") +
+  xlab("Ano") +
+  theme_minimal()
+```
+
+
+```{r}
+STL <- stlf(treino, lambda = 0, h = 18, biasadj = TRUE)
+
+autoplot(v) + autolayer(STL, series = "STL", PI = T) + 
+   ggtitle("Modelo de Previsão: STL-ETS ") +
+  ylab("Preço do Milho em Reais (60 kg)") +
+  xlab("Ano") +
+  theme_minimal()
+```
+
+
+
+```{r}
+st <- summary(STL)
+
+st$model
+
+knitr::kable(st)
+```
+
+
+
+
+Análise Residual Residual 
+
+```{r}
+checkresiduals(STL)
+```
+
+### NNAR
+Neural Network AutoRegression
+
+Com os dados da série temporal, os valores dos Lags da série temporal podem ser usados como entradas para uma rede neural, assim como usamos valores defasados em um modelo de autoregressão linear. Chamamos isso de uma rede neural de autorressões ou modelo NNAR.
+
+```{r}
+NNAR <- forecast(nnetar(treino), h = 18)
+
+autoplot(v) + autolayer(NNAR,PI = F) +
+   ggtitle("Modelo de Previsão: NNAR ") +
+  ylab("Preço do Milho em Reais (60 kg)") +
+  xlab("Ano") +
+  theme_minimal()
+```
+
+
+
+### TBATS
+Exponential Smoothing Method + Box-Cox Transformation + ARMA model for residuals + Trigonometric Seasonal
+
+É um método de previsão para modelar dados de séries temporáveis. O principal objetivo disso é prever séries temporizadas com padrões sazonais complexos usando suavização exponencial.Além disso é um modelo híbrido que utiliza  de outros metodos de previsão.
+
+```{r}
+TBATS <- forecast(tbats(treino, biasadj = TRUE), h = 18)
+
+autoplot(v) + autolayer(TBATS,PI=F) + 
+   ggtitle("Modelo de Previsão: TBATS ") +
+  ylab("Reais") +
+  xlab("Ano") +
+  theme_minimal()
+
+```
+
+```{r}
+
+autoplot(v) + autolayer(TBATS,PI=T) + 
+   ggtitle("Modelo de Previsão: TBATS ") +
+  ylab("Reais") +
+  xlab("Ano") +
+  theme_minimal()
+
+```
+
+
+```{r}
+stb <- summary(TBATS)
+
+stb$model
+
+knitr::kable(stb)
+```
+
+
+
+
+Análise Residual Residual 
+
+```{r}
+checkresiduals(STL)
+```
+
+### Combination 
+
+É um metodo que utilza o valor dois pontos de previção e faz uma média entre eles para 
+
+```{r}
+Combination <- (ETS[["mean"]] + ARIMA[["mean"]] + STL[["mean"]] + NNAR[["mean"]] + 
+    TBATS[["mean"]])/5
+```
+
+```{r}
+autoplot(v) + autolayer(Combination,PI=F) + 
+  ggtitle("Modelo de Previsão: Combinação ") +
+  ylab("Reais") +
+  xlab("Ano") + 
+  theme_minimal()
+
+
+```
+
+
+### Todas a Previsões juntas
+
+```{r}
+autoplot(df_ts) + autolayer(ETS, series = "ETS", PI = FALSE) + autolayer(ARIMA, 
+    series = "ARIMA", PI = FALSE) + autolayer(STL, series = "STL", PI = FALSE) + 
+    autolayer(NNAR, series = "NNAR", PI = FALSE) + autolayer(TBATS, series = "TBATS", 
+    PI = FALSE) + autolayer(Combination, series = "Combination") + xlab("Ano") + 
+    ylab("Reais") + ggtitle("Previsão do preço do Milho ") + theme_minimal()
+
+```
+
+### Acurácia das previsões 
+
+```{r echo=FALSE}
+acc <- c(ETS = accuracy(ETS, df_ts)["Test set", "RMSE"], ARIMA = accuracy(ARIMA, 
+    df_ts)["Test set", "RMSE"], `STL-ETS` = accuracy(STL, df_ts)["Test set", 
+    "RMSE"], NNAR = accuracy(NNAR, df_ts)["Test set", "RMSE"], TBATS = accuracy(TBATS, 
+    df_ts)["Test set", "RMSE"], Combination = accuracy(Combination, df_ts)["Test set", 
+    "RMSE"])
+
+knitr::kable(acc,col.names = c('' ))
+
+
+```
+
+# Conclusão {-}
+
+
+Tendo Feito as analises acima , o ideal vai ser a ARIMA com STL e a combinação entre eles.
+
+## ARIMA e STL
+
+
+```{r}
+dt <- window(df_ts ,start=c(2020,1) ,end=c(2021,6) )
+
+Prev_Arima <- forecast(auto.arima(df_ts, lambda = lambda, biasadj = TRUE, stepwise = FALSE, 
+    approximation = FALSE), h = 6)
+
+Prev_STL <- stlf(df_ts, lambda = 0, h = 6, biasadj = TRUE)
+
+Prev_Comb <- ( Prev_Arima[["mean"]] + Prev_STL[["mean"]])/2
+
+
+
+```
+
+
+```{r}
+autoplot(dt) + autolayer(Prev_STL, series = "STL", PI = F) + 
+  autolayer(Prev_Arima ,series = "ARIMA",PI= F) +
+  autolayer(Prev_Comb ,series = "Combinação",PI= F) +
+  xlab("Ano") +  ylab("Reais") + ggtitle("Previsão do preço do Milho ") + theme_minimal()
+
+```
+
+
+```{r echo=FALSE}
+PA <- summary(Prev_Arima)
+PS <- summary(Prev_STL)
+```
+
+
+Aqui temos os resultados das previsões do Arima 
+
+```{r echo=FALSE}
+knitr::kable(PA)
+```
+
+Aqui temos os resultados das previsões do STL 
+
+```{r echo=FALSE}
+knitr::kable(PS)
+
+
+```
+
+
+
+# Referencias {-}
+
+
+ELLIS, Peter. X13-SEATS-ARIMA as an automated forecasting tool. 2015. Disponível em: https://www.r-bloggers.com/x13-seats-arima-as-an-automated-forecasting-tool/ e http://freerangestats.info/blog/2015/12/21/m3-and-x13.
+
+GAILLARD, Pierre; GOUDE, Yannig. opera: Online Prediction by Expert Aggregation. R package version 1.0. 2016. Disponível em: https://CRAN.R-project.org/package=opera.
+
+HYNDMAN, Rob J. R packages for forecast combinations. 2016. Disponível em:https://robjhyndman.com/hyndsight/forecast-combinations/
+
+HYNDMAN, Rob J.; ATHANASOPOULOS, George . Forecasting: principles and practice. 2nd ed. Otexts, 2018. Disponível em: https://otexts.org/fpp2/.

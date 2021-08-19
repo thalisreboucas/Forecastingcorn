@@ -1,0 +1,2179 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Analise Pretitiva | Previsões sobre o Preço do Milho</title>
+  <meta name="description" content="Analise Pretitiva | Previsões sobre o Preço do Milho" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Analise Pretitiva | Previsões sobre o Preço do Milho" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Analise Pretitiva | Previsões sobre o Preço do Milho" />
+  
+  
+  
+
+<meta name="author" content="Thalis Rebouças" />
+
+
+<meta name="date" content="2021-08-19" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="analise-grafica.html"/>
+<link rel="next" href="conclusão.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet" />
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script>
+<script src="libs/dygraphs-1.1.1/shapes.js"></script>
+<script src="libs/moment-2.8.4/moment.js"></script>
+<script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script>
+<script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script>
+<script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a></li>
+<li class="chapter" data-level="" data-path="banco-de-dados.html"><a href="banco-de-dados.html"><i class="fa fa-check"></i>Banco de Dados</a></li>
+<li class="chapter" data-level="" data-path="analise-grafica.html"><a href="analise-grafica.html"><i class="fa fa-check"></i>Analise Grafica</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="analise-grafica.html"><a href="analise-grafica.html#do-ano-de-2005-a-2021"><i class="fa fa-check"></i><b>0.1</b> Do ano de 2005 a 2021</a></li>
+<li class="chapter" data-level="0.2" data-path="analise-grafica.html"><a href="analise-grafica.html#por-mês-com-os-anos-separados"><i class="fa fa-check"></i><b>0.2</b> Por mês com os anos separados</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="analise-pretitiva.html"><a href="analise-pretitiva.html"><i class="fa fa-check"></i>Analise Pretitiva</a>
+<ul>
+<li class="chapter" data-level="0.3" data-path="analise-pretitiva.html"><a href="analise-pretitiva.html#diferença-entre-os-meses"><i class="fa fa-check"></i><b>0.3</b> Diferença entre os meses</a></li>
+<li class="chapter" data-level="0.4" data-path="analise-pretitiva.html"><a href="analise-pretitiva.html#treino-dos-dados-para-as-previsões"><i class="fa fa-check"></i><b>0.4</b> Treino dos dados para as Previsões</a></li>
+<li class="chapter" data-level="0.5" data-path="analise-pretitiva.html"><a href="analise-pretitiva.html#tipos-de-previsões"><i class="fa fa-check"></i><b>0.5</b> Tipos de Previsões</a>
+<ul>
+<li class="chapter" data-level="0.5.1" data-path="analise-pretitiva.html"><a href="analise-pretitiva.html#arima"><i class="fa fa-check"></i><b>0.5.1</b> ARIMA</a></li>
+<li class="chapter" data-level="0.5.2" data-path="analise-pretitiva.html"><a href="analise-pretitiva.html#ets"><i class="fa fa-check"></i><b>0.5.2</b> ETS</a></li>
+<li class="chapter" data-level="0.5.3" data-path="analise-pretitiva.html"><a href="analise-pretitiva.html#stl-ets"><i class="fa fa-check"></i><b>0.5.3</b> STL-ETS</a></li>
+<li class="chapter" data-level="0.5.4" data-path="analise-pretitiva.html"><a href="analise-pretitiva.html#nnar"><i class="fa fa-check"></i><b>0.5.4</b> NNAR</a></li>
+<li class="chapter" data-level="0.5.5" data-path="analise-pretitiva.html"><a href="analise-pretitiva.html#tbats"><i class="fa fa-check"></i><b>0.5.5</b> TBATS</a></li>
+<li class="chapter" data-level="0.5.6" data-path="analise-pretitiva.html"><a href="analise-pretitiva.html#combination"><i class="fa fa-check"></i><b>0.5.6</b> Combination</a></li>
+<li class="chapter" data-level="0.5.7" data-path="analise-pretitiva.html"><a href="analise-pretitiva.html#todas-a-previsões-juntas"><i class="fa fa-check"></i><b>0.5.7</b> Todas a Previsões juntas</a></li>
+<li class="chapter" data-level="0.5.8" data-path="analise-pretitiva.html"><a href="analise-pretitiva.html#acurácia-das-previsões"><i class="fa fa-check"></i><b>0.5.8</b> Acurácia das previsões</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="conclusão.html"><a href="conclusão.html"><i class="fa fa-check"></i>Conclusão</a>
+<ul>
+<li class="chapter" data-level="0.6" data-path="conclusão.html"><a href="conclusão.html#arima-e-stl"><i class="fa fa-check"></i><b>0.6</b> ARIMA e STL</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referencias</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Previsões sobre o Preço do Milho</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="analise-pretitiva" class="section level1 unnumbered">
+<h1>Analise Pretitiva</h1>
+<p>Para isso temos que ver se é uma séries temporal com tendências, ou com sazonalidade, não estacionárias.</p>
+<div id="diferença-entre-os-meses" class="section level2" number="0.3">
+<h2><span class="header-section-number">0.3</span> Diferença entre os meses</h2>
+<p>Fazendo o diff() para ver a diferença do dados se tem alguma tendência .</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="analise-pretitiva.html#cb13-1" aria-hidden="true" tabindex="-1"></a>DY <span class="ot">&lt;-</span> <span class="fu">diff</span>(df_ts)</span>
+<span id="cb13-2"><a href="analise-pretitiva.html#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="analise-pretitiva.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(DY)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="analise-pretitiva.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggseasonplot</span>(DY)<span class="sc">+</span></span>
+<span id="cb14-2"><a href="analise-pretitiva.html#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Diferença entre os meses  &quot;</span>) <span class="sc">+</span></span>
+<span id="cb14-3"><a href="analise-pretitiva.html#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Difernaça do Preço em Reais&quot;</span>) <span class="sc">+</span></span>
+<span id="cb14-4"><a href="analise-pretitiva.html#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Mês&quot;</span>)<span class="sc">+</span></span>
+<span id="cb14-5"><a href="analise-pretitiva.html#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="analise-pretitiva.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsubseriesplot</span>(DY) <span class="sc">+</span></span>
+<span id="cb15-2"><a href="analise-pretitiva.html#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Difernça em do Preço Reais&quot;</span>) <span class="sc">+</span></span>
+<span id="cb15-3"><a href="analise-pretitiva.html#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Mês&quot;</span>) <span class="sc">+</span></span>
+<span id="cb15-4"><a href="analise-pretitiva.html#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="analise-pretitiva.html#cb16-1" aria-hidden="true" tabindex="-1"></a>lambda <span class="ot">&lt;-</span> <span class="fu">BoxCox.lambda</span>(df_ts)</span>
+<span id="cb16-2"><a href="analise-pretitiva.html#cb16-2" aria-hidden="true" tabindex="-1"></a>ts_bx <span class="ot">&lt;-</span> <span class="fu">BoxCox</span>(df_ts,lambda)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="analise-pretitiva.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggtsdisplay</span>(ts_bx)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p>Diferenciação não sazional</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="analise-pretitiva.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ndiffs</span>(ts_bx)</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="analise-pretitiva.html#cb20-1" aria-hidden="true" tabindex="-1"></a>ts_bd <span class="ot">&lt;-</span> <span class="fu">diff</span>(ts_bx,<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="analise-pretitiva.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggtsdisplay</span>(ts_bd)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>Diferenciação não sazional</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="analise-pretitiva.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nsdiffs</span>(ts_bd)</span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+</div>
+<div id="treino-dos-dados-para-as-previsões" class="section level2" number="0.4">
+<h2><span class="header-section-number">0.4</span> Treino dos dados para as Previsões</h2>
+<p>Separanado o treino até o ano de 2020 para , ter uma previsão de 1 anos para ver qual modelo que se encaixar melhor para uma futura previsão.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="analise-pretitiva.html#cb24-1" aria-hidden="true" tabindex="-1"></a>treino <span class="ot">&lt;-</span> <span class="fu">window</span>(df_ts, <span class="at">start=</span><span class="dv">2005</span> , <span class="at">end =</span> <span class="fu">c</span>(<span class="dv">2019</span>,<span class="dv">12</span> ))</span>
+<span id="cb24-2"><a href="analise-pretitiva.html#cb24-2" aria-hidden="true" tabindex="-1"></a>v <span class="ot">&lt;-</span> <span class="fu">window</span>(df_ts ,<span class="at">start=</span><span class="fu">c</span>(<span class="dv">2020</span>,<span class="dv">1</span>) )</span></code></pre></div>
+</div>
+<div id="tipos-de-previsões" class="section level2" number="0.5">
+<h2><span class="header-section-number">0.5</span> Tipos de Previsões</h2>
+<div id="arima" class="section level3" number="0.5.1">
+<h3><span class="header-section-number">0.5.1</span> ARIMA</h3>
+<p>Autoregressive Integrated Moving Average</p>
+<p>Utiliza a autocorrelação e médias móveis do passado para prever o futuro. Utilizado em casos que os dados mostram evidências de não estacionariedade</p>
+<p>Previsão</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="analise-pretitiva.html#cb25-1" aria-hidden="true" tabindex="-1"></a>ARIMA <span class="ot">&lt;-</span> <span class="fu">forecast</span>(<span class="fu">auto.arima</span>(treino, <span class="at">lambda =</span> lambda, <span class="at">biasadj =</span> <span class="cn">TRUE</span>, <span class="at">stepwise =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb25-2"><a href="analise-pretitiva.html#cb25-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">approximation =</span> <span class="cn">FALSE</span>), <span class="at">h =</span> <span class="dv">18</span>)</span>
+<span id="cb25-3"><a href="analise-pretitiva.html#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="analise-pretitiva.html#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="analise-pretitiva.html#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(v) <span class="sc">+</span> <span class="fu">autolayer</span>(ARIMA , <span class="at">PI=</span> F , <span class="at">series =</span> <span class="st">&quot;ARIMA&quot;</span>) <span class="sc">+</span></span>
+<span id="cb25-6"><a href="analise-pretitiva.html#cb25-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">ggtitle</span>(<span class="st">&quot;Modelo de Previsão: ARIMA &quot;</span>) <span class="sc">+</span></span>
+<span id="cb25-7"><a href="analise-pretitiva.html#cb25-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Preço do Milho em Reais (60 kg)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb25-8"><a href="analise-pretitiva.html#cb25-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Ano&quot;</span>) <span class="sc">+</span></span>
+<span id="cb25-9"><a href="analise-pretitiva.html#cb25-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="analise-pretitiva.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ARIMA)</span></code></pre></div>
+<pre><code>## 
+## Forecast method: ARIMA(0,1,1)(1,0,2)[12]
+## 
+## Model Information:
+## Series: treino 
+## ARIMA(0,1,1)(1,0,2)[12] 
+## Box Cox transformation: lambda= -0.6320698 
+## 
+## Coefficients:
+##          ma1    sar1     sma1    sma2
+##       0.3324  0.8349  -0.9649  0.2532
+## s.e.  0.0703  0.1120   0.1259  0.0982
+## 
+## sigma^2 estimated as 7.013e-05:  log likelihood=602.62
+## AIC=-1195.24   AICc=-1194.89   BIC=-1179.3
+## 
+## Error measures:
+##                       ME     RMSE      MAE        MPE     MAPE      MASE
+## Training set -0.04769146 1.987826 1.527124 -0.3483516 5.261001 0.2346391
+##                     ACF1
+## Training set -0.09270925
+## 
+## Forecasts:
+##          Point Forecast    Lo 80     Hi 80    Lo 95     Hi 95
+## Jan 2020       49.96307 43.88796  56.55614 41.29766  60.93228
+## Feb 2020       51.54499 41.27660  63.36841 37.48358  72.60022
+## Mar 2020       54.43649 40.50832  71.27566 35.89112  86.25980
+## Apr 2020       52.76638 37.48438  71.84504 32.74288  90.31329
+## May 2020       53.65115 36.28888  76.10318 31.25705  99.90104
+## Jun 2020       51.98687 34.05894  75.72620 29.08418 102.45185
+## Jul 2020       51.14101 32.47604  76.45215 27.50902 106.71121
+## Aug 2020       53.37266 32.38558  82.87742 27.12575 121.47404
+## Sep 2020       54.83448 31.97926  88.03563 26.53761 135.14612
+## Oct 2020       55.17351 31.18475  90.96932 25.69674 145.25119
+## Nov 2020       55.72038 30.53168  94.35378 24.98985 157.06584
+## Dec 2020       56.57353 30.03131  98.48306 24.41751 171.61157
+## Jan 2021       57.63617 29.76545 102.80355 24.06669 186.92352
+## Feb 2021       59.98080 29.93545 110.32999 24.04217 212.39281
+## Mar 2021       62.50668 30.12335 118.74298 24.03307 243.69548
+## Apr 2021       59.38612 28.72970 112.41171 22.93764 229.01652
+## May 2021       59.65104 28.32736 114.89248 22.53875 242.68357
+## Jun 2021       59.93996 27.94997 117.46702 22.16473 257.59069</code></pre>
+<p>Valores do Modelo</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="analise-pretitiva.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(v) <span class="sc">+</span> <span class="fu">autolayer</span>(ARIMA , <span class="at">PI=</span> T , <span class="at">series =</span> <span class="st">&quot;ARIMA&quot;</span>) <span class="sc">+</span></span>
+<span id="cb28-2"><a href="analise-pretitiva.html#cb28-2" aria-hidden="true" tabindex="-1"></a>      <span class="fu">ggtitle</span>(<span class="st">&quot;Modelo de Previsão: ARIMA &quot;</span>) <span class="sc">+</span></span>
+<span id="cb28-3"><a href="analise-pretitiva.html#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Preço do Milho em Reais (60 kg)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb28-4"><a href="analise-pretitiva.html#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Ano&quot;</span>) <span class="sc">+</span></span>
+<span id="cb28-5"><a href="analise-pretitiva.html#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<pre><code>## Series: treino 
+## ARIMA(0,1,1)(1,0,2)[12] 
+## Box Cox transformation: lambda= -0.6320698 
+## 
+## Coefficients:
+##          ma1    sar1     sma1    sma2
+##       0.3324  0.8349  -0.9649  0.2532
+## s.e.  0.0703  0.1120   0.1259  0.0982
+## 
+## sigma^2 estimated as 7.013e-05:  log likelihood=602.62
+## AIC=-1195.24   AICc=-1194.89   BIC=-1179.3</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Point Forecast
+</th>
+<th style="text-align:right;">
+Lo 80
+</th>
+<th style="text-align:right;">
+Hi 80
+</th>
+<th style="text-align:right;">
+Lo 95
+</th>
+<th style="text-align:right;">
+Hi 95
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Jan 2020
+</td>
+<td style="text-align:right;">
+49.96307
+</td>
+<td style="text-align:right;">
+43.88796
+</td>
+<td style="text-align:right;">
+56.55614
+</td>
+<td style="text-align:right;">
+41.29765
+</td>
+<td style="text-align:right;">
+60.93228
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Feb 2020
+</td>
+<td style="text-align:right;">
+51.54500
+</td>
+<td style="text-align:right;">
+41.27660
+</td>
+<td style="text-align:right;">
+63.36841
+</td>
+<td style="text-align:right;">
+37.48358
+</td>
+<td style="text-align:right;">
+72.60022
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mar 2020
+</td>
+<td style="text-align:right;">
+54.43649
+</td>
+<td style="text-align:right;">
+40.50832
+</td>
+<td style="text-align:right;">
+71.27566
+</td>
+<td style="text-align:right;">
+35.89112
+</td>
+<td style="text-align:right;">
+86.25980
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Apr 2020
+</td>
+<td style="text-align:right;">
+52.76638
+</td>
+<td style="text-align:right;">
+37.48438
+</td>
+<td style="text-align:right;">
+71.84504
+</td>
+<td style="text-align:right;">
+32.74288
+</td>
+<td style="text-align:right;">
+90.31329
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+May 2020
+</td>
+<td style="text-align:right;">
+53.65115
+</td>
+<td style="text-align:right;">
+36.28888
+</td>
+<td style="text-align:right;">
+76.10318
+</td>
+<td style="text-align:right;">
+31.25705
+</td>
+<td style="text-align:right;">
+99.90104
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Jun 2020
+</td>
+<td style="text-align:right;">
+51.98687
+</td>
+<td style="text-align:right;">
+34.05894
+</td>
+<td style="text-align:right;">
+75.72620
+</td>
+<td style="text-align:right;">
+29.08418
+</td>
+<td style="text-align:right;">
+102.45185
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Jul 2020
+</td>
+<td style="text-align:right;">
+51.14101
+</td>
+<td style="text-align:right;">
+32.47604
+</td>
+<td style="text-align:right;">
+76.45215
+</td>
+<td style="text-align:right;">
+27.50902
+</td>
+<td style="text-align:right;">
+106.71121
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Aug 2020
+</td>
+<td style="text-align:right;">
+53.37266
+</td>
+<td style="text-align:right;">
+32.38558
+</td>
+<td style="text-align:right;">
+82.87742
+</td>
+<td style="text-align:right;">
+27.12575
+</td>
+<td style="text-align:right;">
+121.47404
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sep 2020
+</td>
+<td style="text-align:right;">
+54.83448
+</td>
+<td style="text-align:right;">
+31.97926
+</td>
+<td style="text-align:right;">
+88.03563
+</td>
+<td style="text-align:right;">
+26.53761
+</td>
+<td style="text-align:right;">
+135.14612
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Oct 2020
+</td>
+<td style="text-align:right;">
+55.17351
+</td>
+<td style="text-align:right;">
+31.18475
+</td>
+<td style="text-align:right;">
+90.96932
+</td>
+<td style="text-align:right;">
+25.69674
+</td>
+<td style="text-align:right;">
+145.25119
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Nov 2020
+</td>
+<td style="text-align:right;">
+55.72038
+</td>
+<td style="text-align:right;">
+30.53168
+</td>
+<td style="text-align:right;">
+94.35378
+</td>
+<td style="text-align:right;">
+24.98985
+</td>
+<td style="text-align:right;">
+157.06584
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dec 2020
+</td>
+<td style="text-align:right;">
+56.57353
+</td>
+<td style="text-align:right;">
+30.03131
+</td>
+<td style="text-align:right;">
+98.48306
+</td>
+<td style="text-align:right;">
+24.41751
+</td>
+<td style="text-align:right;">
+171.61157
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Jan 2021
+</td>
+<td style="text-align:right;">
+57.63617
+</td>
+<td style="text-align:right;">
+29.76545
+</td>
+<td style="text-align:right;">
+102.80355
+</td>
+<td style="text-align:right;">
+24.06669
+</td>
+<td style="text-align:right;">
+186.92352
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Feb 2021
+</td>
+<td style="text-align:right;">
+59.98080
+</td>
+<td style="text-align:right;">
+29.93545
+</td>
+<td style="text-align:right;">
+110.32998
+</td>
+<td style="text-align:right;">
+24.04217
+</td>
+<td style="text-align:right;">
+212.39281
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mar 2021
+</td>
+<td style="text-align:right;">
+62.50668
+</td>
+<td style="text-align:right;">
+30.12335
+</td>
+<td style="text-align:right;">
+118.74298
+</td>
+<td style="text-align:right;">
+24.03307
+</td>
+<td style="text-align:right;">
+243.69548
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Apr 2021
+</td>
+<td style="text-align:right;">
+59.38611
+</td>
+<td style="text-align:right;">
+28.72970
+</td>
+<td style="text-align:right;">
+112.41171
+</td>
+<td style="text-align:right;">
+22.93764
+</td>
+<td style="text-align:right;">
+229.01652
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+May 2021
+</td>
+<td style="text-align:right;">
+59.65104
+</td>
+<td style="text-align:right;">
+28.32736
+</td>
+<td style="text-align:right;">
+114.89248
+</td>
+<td style="text-align:right;">
+22.53875
+</td>
+<td style="text-align:right;">
+242.68357
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Jun 2021
+</td>
+<td style="text-align:right;">
+59.93996
+</td>
+<td style="text-align:right;">
+27.94997
+</td>
+<td style="text-align:right;">
+117.46702
+</td>
+<td style="text-align:right;">
+22.16473
+</td>
+<td style="text-align:right;">
+257.59069
+</td>
+</tr>
+</tbody>
+</table>
+<p>Análise Residual Residual</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="analise-pretitiva.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">checkresiduals</span>(ARIMA)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<pre><code>## 
+##  Ljung-Box test
+## 
+## data:  Residuals from ARIMA(0,1,1)(1,0,2)[12]
+## Q* = 16.751, df = 20, p-value = 0.6691
+## 
+## Model df: 4.   Total lags used: 24</code></pre>
+</div>
+<div id="ets" class="section level3" number="0.5.2">
+<h3><span class="header-section-number">0.5.2</span> ETS</h3>
+<p>Error Trend Seasonal</p>
+<p>É um método de abordagem para prever séries temporais univariadas. Este modelo ETS se concentra em tendências e componentes sazonais. A flexibilidade do modelo ETS reside em sua capacidade de tendência e componentes sazonais de diferentes características.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="analise-pretitiva.html#cb32-1" aria-hidden="true" tabindex="-1"></a>ETS <span class="ot">&lt;-</span> <span class="fu">forecast</span>(<span class="fu">ets</span>(treino), <span class="at">h =</span> <span class="dv">18</span>)</span>
+<span id="cb32-2"><a href="analise-pretitiva.html#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="analise-pretitiva.html#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(v) <span class="sc">+</span><span class="fu">autolayer</span>(ETS,<span class="at">PI =</span>F) <span class="sc">+</span></span>
+<span id="cb32-4"><a href="analise-pretitiva.html#cb32-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">&quot;Modelo de Previsão: ETS &quot;</span>) <span class="sc">+</span></span>
+<span id="cb32-5"><a href="analise-pretitiva.html#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Preço do Milho em Reais (60 kg) &quot;</span>) <span class="sc">+</span></span>
+<span id="cb32-6"><a href="analise-pretitiva.html#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Ano&quot;</span>) <span class="sc">+</span></span>
+<span id="cb32-7"><a href="analise-pretitiva.html#cb32-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="analise-pretitiva.html#cb33-1" aria-hidden="true" tabindex="-1"></a>ETS <span class="ot">&lt;-</span> <span class="fu">forecast</span>(<span class="fu">ets</span>(treino), <span class="at">h =</span> <span class="dv">18</span>)</span>
+<span id="cb33-2"><a href="analise-pretitiva.html#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="analise-pretitiva.html#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(v) <span class="sc">+</span><span class="fu">autolayer</span>(ETS,<span class="at">PI =</span>T) <span class="sc">+</span></span>
+<span id="cb33-4"><a href="analise-pretitiva.html#cb33-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">&quot;Modelo de Previsão: ETS &quot;</span>) <span class="sc">+</span></span>
+<span id="cb33-5"><a href="analise-pretitiva.html#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Preço do Milho em Reais (60 kg)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb33-6"><a href="analise-pretitiva.html#cb33-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Ano&quot;</span>) <span class="sc">+</span></span>
+<span id="cb33-7"><a href="analise-pretitiva.html#cb33-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="analise-pretitiva.html#cb34-1" aria-hidden="true" tabindex="-1"></a>se <span class="ot">&lt;-</span> <span class="fu">summary</span>(ETS)</span>
+<span id="cb34-2"><a href="analise-pretitiva.html#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="analise-pretitiva.html#cb34-3" aria-hidden="true" tabindex="-1"></a>se<span class="sc">$</span>model</span></code></pre></div>
+<pre><code>## ETS(M,Ad,N) 
+## 
+## Call:
+##  ets(y = treino) 
+## 
+##   Smoothing parameters:
+##     alpha = 0.9923 
+##     beta  = 0.3062 
+##     phi   = 0.8 
+## 
+##   Initial states:
+##     l = 17.7833 
+##     b = -0.1054 
+## 
+##   sigma:  0.0721
+## 
+##      AIC     AICc      BIC 
+## 1181.997 1182.483 1201.155</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="analise-pretitiva.html#cb36-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(se)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Point Forecast
+</th>
+<th style="text-align:right;">
+Lo 80
+</th>
+<th style="text-align:right;">
+Hi 80
+</th>
+<th style="text-align:right;">
+Lo 95
+</th>
+<th style="text-align:right;">
+Hi 95
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Jan 2020
+</td>
+<td style="text-align:right;">
+49.77423
+</td>
+<td style="text-align:right;">
+45.17448
+</td>
+<td style="text-align:right;">
+54.37398
+</td>
+<td style="text-align:right;">
+42.7395155
+</td>
+<td style="text-align:right;">
+56.80894
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Feb 2020
+</td>
+<td style="text-align:right;">
+51.07981
+</td>
+<td style="text-align:right;">
+43.67457
+</td>
+<td style="text-align:right;">
+58.48504
+</td>
+<td style="text-align:right;">
+39.7544810
+</td>
+<td style="text-align:right;">
+62.40513
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mar 2020
+</td>
+<td style="text-align:right;">
+52.12427
+</td>
+<td style="text-align:right;">
+42.05293
+</td>
+<td style="text-align:right;">
+62.19561
+</td>
+<td style="text-align:right;">
+36.7214876
+</td>
+<td style="text-align:right;">
+67.52706
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Apr 2020
+</td>
+<td style="text-align:right;">
+52.95984
+</td>
+<td style="text-align:right;">
+40.29513
+</td>
+<td style="text-align:right;">
+65.62456
+</td>
+<td style="text-align:right;">
+33.5908326
+</td>
+<td style="text-align:right;">
+72.32886
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+May 2020
+</td>
+<td style="text-align:right;">
+53.62830
+</td>
+<td style="text-align:right;">
+38.43375
+</td>
+<td style="text-align:right;">
+68.82286
+</td>
+<td style="text-align:right;">
+30.3902344
+</td>
+<td style="text-align:right;">
+76.86637
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Jun 2020
+</td>
+<td style="text-align:right;">
+54.16307
+</td>
+<td style="text-align:right;">
+36.50217
+</td>
+<td style="text-align:right;">
+71.82397
+</td>
+<td style="text-align:right;">
+27.1530484
+</td>
+<td style="text-align:right;">
+81.17309
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Jul 2020
+</td>
+<td style="text-align:right;">
+54.59088
+</td>
+<td style="text-align:right;">
+34.52765
+</td>
+<td style="text-align:right;">
+74.65411
+</td>
+<td style="text-align:right;">
+23.9068140
+</td>
+<td style="text-align:right;">
+85.27495
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Aug 2020
+</td>
+<td style="text-align:right;">
+54.93313
+</td>
+<td style="text-align:right;">
+32.53102
+</td>
+<td style="text-align:right;">
+77.33525
+</td>
+<td style="text-align:right;">
+20.6720516
+</td>
+<td style="text-align:right;">
+89.19421
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sep 2020
+</td>
+<td style="text-align:right;">
+55.20693
+</td>
+<td style="text-align:right;">
+30.52764
+</td>
+<td style="text-align:right;">
+79.88623
+</td>
+<td style="text-align:right;">
+17.4632083
+</td>
+<td style="text-align:right;">
+92.95065
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Oct 2020
+</td>
+<td style="text-align:right;">
+55.42597
+</td>
+<td style="text-align:right;">
+28.52856
+</td>
+<td style="text-align:right;">
+82.32338
+</td>
+<td style="text-align:right;">
+14.2899291
+</td>
+<td style="text-align:right;">
+96.56201
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Nov 2020
+</td>
+<td style="text-align:right;">
+55.60120
+</td>
+<td style="text-align:right;">
+26.54149
+</td>
+<td style="text-align:right;">
+84.66092
+</td>
+<td style="text-align:right;">
+11.1582036
+</td>
+<td style="text-align:right;">
+100.04420
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dec 2020
+</td>
+<td style="text-align:right;">
+55.74139
+</td>
+<td style="text-align:right;">
+24.57159
+</td>
+<td style="text-align:right;">
+86.91119
+</td>
+<td style="text-align:right;">
+8.0712979
+</td>
+<td style="text-align:right;">
+103.41148
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Jan 2021
+</td>
+<td style="text-align:right;">
+55.85354
+</td>
+<td style="text-align:right;">
+22.62213
+</td>
+<td style="text-align:right;">
+89.08495
+</td>
+<td style="text-align:right;">
+5.0304835
+</td>
+<td style="text-align:right;">
+106.67659
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Feb 2021
+</td>
+<td style="text-align:right;">
+55.94326
+</td>
+<td style="text-align:right;">
+20.69493
+</td>
+<td style="text-align:right;">
+91.19158
+</td>
+<td style="text-align:right;">
+2.0355952
+</td>
+<td style="text-align:right;">
+109.85092
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mar 2021
+</td>
+<td style="text-align:right;">
+56.01503
+</td>
+<td style="text-align:right;">
+18.79078
+</td>
+<td style="text-align:right;">
+93.23928
+</td>
+<td style="text-align:right;">
+-0.9145462
+</td>
+<td style="text-align:right;">
+112.94461
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Apr 2021
+</td>
+<td style="text-align:right;">
+56.07245
+</td>
+<td style="text-align:right;">
+16.90970
+</td>
+<td style="text-align:right;">
+95.23521
+</td>
+<td style="text-align:right;">
+-3.8218163
+</td>
+<td style="text-align:right;">
+115.96672
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+May 2021
+</td>
+<td style="text-align:right;">
+56.11839
+</td>
+<td style="text-align:right;">
+15.05114
+</td>
+<td style="text-align:right;">
+97.18564
+</td>
+<td style="text-align:right;">
+-6.6885492
+</td>
+<td style="text-align:right;">
+118.92533
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Jun 2021
+</td>
+<td style="text-align:right;">
+56.15514
+</td>
+<td style="text-align:right;">
+13.21420
+</td>
+<td style="text-align:right;">
+99.09608
+</td>
+<td style="text-align:right;">
+-9.5173623
+</td>
+<td style="text-align:right;">
+121.82764
+</td>
+</tr>
+</tbody>
+</table>
+<p>Análise Residual Residual</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="analise-pretitiva.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">checkresiduals</span>(ETS)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<pre><code>## 
+##  Ljung-Box test
+## 
+## data:  Residuals from ETS(M,Ad,N)
+## Q* = 21.339, df = 19, p-value = 0.3184
+## 
+## Model df: 5.   Total lags used: 24</code></pre>
+</div>
+<div id="stl-ets" class="section level3" number="0.5.3">
+<h3><span class="header-section-number">0.5.3</span> STL-ETS</h3>
+<p>Seasonal and Trend decomposition using Loess</p>
+<p>É divido em tendência, a sazonalidade e o restante. O STL usa LOESS (suavização de dispersão estimada localmente) para extrair estimativas de suavizar as estimativas dos três componentes.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="analise-pretitiva.html#cb39-1" aria-hidden="true" tabindex="-1"></a>STL <span class="ot">&lt;-</span> <span class="fu">stlf</span>(treino, <span class="at">lambda =</span> <span class="dv">0</span>, <span class="at">h =</span> <span class="dv">18</span>, <span class="at">biasadj =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb39-2"><a href="analise-pretitiva.html#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="analise-pretitiva.html#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(v) <span class="sc">+</span> <span class="fu">autolayer</span>(STL, <span class="at">series =</span> <span class="st">&quot;STL&quot;</span>, <span class="at">PI =</span> F) <span class="sc">+</span> </span>
+<span id="cb39-4"><a href="analise-pretitiva.html#cb39-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">&quot;Modelo de Previsão: STL-ETS &quot;</span>) <span class="sc">+</span></span>
+<span id="cb39-5"><a href="analise-pretitiva.html#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Preço do Milho em Reais (60 kg)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb39-6"><a href="analise-pretitiva.html#cb39-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Ano&quot;</span>) <span class="sc">+</span></span>
+<span id="cb39-7"><a href="analise-pretitiva.html#cb39-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="analise-pretitiva.html#cb40-1" aria-hidden="true" tabindex="-1"></a>STL <span class="ot">&lt;-</span> <span class="fu">stlf</span>(treino, <span class="at">lambda =</span> <span class="dv">0</span>, <span class="at">h =</span> <span class="dv">18</span>, <span class="at">biasadj =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb40-2"><a href="analise-pretitiva.html#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-3"><a href="analise-pretitiva.html#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(v) <span class="sc">+</span> <span class="fu">autolayer</span>(STL, <span class="at">series =</span> <span class="st">&quot;STL&quot;</span>, <span class="at">PI =</span> T) <span class="sc">+</span> </span>
+<span id="cb40-4"><a href="analise-pretitiva.html#cb40-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">&quot;Modelo de Previsão: STL-ETS &quot;</span>) <span class="sc">+</span></span>
+<span id="cb40-5"><a href="analise-pretitiva.html#cb40-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Preço do Milho em Reais (60 kg)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb40-6"><a href="analise-pretitiva.html#cb40-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Ano&quot;</span>) <span class="sc">+</span></span>
+<span id="cb40-7"><a href="analise-pretitiva.html#cb40-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="analise-pretitiva.html#cb41-1" aria-hidden="true" tabindex="-1"></a>st <span class="ot">&lt;-</span> <span class="fu">summary</span>(STL)</span>
+<span id="cb41-2"><a href="analise-pretitiva.html#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="analise-pretitiva.html#cb41-3" aria-hidden="true" tabindex="-1"></a>st<span class="sc">$</span>model</span></code></pre></div>
+<pre><code>## ETS(A,Ad,N) 
+## 
+## Call:
+##  ets(y = na.interp(x), model = etsmodel, allow.multiplicative.trend = allow.multiplicative.trend) 
+## 
+##   Smoothing parameters:
+##     alpha = 0.9999 
+##     beta  = 0.3427 
+##     phi   = 0.8 
+## 
+##   Initial states:
+##     l = 2.6765 
+##     b = 0.1541 
+## 
+##   sigma:  0.0612
+## 
+##       AIC      AICc       BIC 
+## -64.09543 -63.60988 -44.93769</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="analise-pretitiva.html#cb43-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(st)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Point Forecast
+</th>
+<th style="text-align:right;">
+Lo 80
+</th>
+<th style="text-align:right;">
+Hi 80
+</th>
+<th style="text-align:right;">
+Lo 95
+</th>
+<th style="text-align:right;">
+Hi 95
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Jan 2020
+</td>
+<td style="text-align:right;">
+49.68943
+</td>
+<td style="text-align:right;">
+45.85589
+</td>
+<td style="text-align:right;">
+53.64242
+</td>
+<td style="text-align:right;">
+43.99128
+</td>
+<td style="text-align:right;">
+55.91610
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Feb 2020
+</td>
+<td style="text-align:right;">
+52.57396
+</td>
+<td style="text-align:right;">
+46.07688
+</td>
+<td style="text-align:right;">
+59.40227
+</td>
+<td style="text-align:right;">
+43.08074
+</td>
+<td style="text-align:right;">
+63.53353
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mar 2020
+</td>
+<td style="text-align:right;">
+55.60435
+</td>
+<td style="text-align:right;">
+46.36077
+</td>
+<td style="text-align:right;">
+65.49530
+</td>
+<td style="text-align:right;">
+42.30895
+</td>
+<td style="text-align:right;">
+71.76761
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Apr 2020
+</td>
+<td style="text-align:right;">
+52.33109
+</td>
+<td style="text-align:right;">
+41.53994
+</td>
+<td style="text-align:right;">
+64.07966
+</td>
+<td style="text-align:right;">
+37.03719
+</td>
+<td style="text-align:right;">
+71.87008
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+May 2020
+</td>
+<td style="text-align:right;">
+52.19707
+</td>
+<td style="text-align:right;">
+39.47856
+</td>
+<td style="text-align:right;">
+66.27737
+</td>
+<td style="text-align:right;">
+34.41964
+</td>
+<td style="text-align:right;">
+76.01866
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Jun 2020
+</td>
+<td style="text-align:right;">
+51.92839
+</td>
+<td style="text-align:right;">
+37.45745
+</td>
+<td style="text-align:right;">
+68.20896
+</td>
+<td style="text-align:right;">
+31.96245
+</td>
+<td style="text-align:right;">
+79.93547
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Jul 2020
+</td>
+<td style="text-align:right;">
+50.49919
+</td>
+<td style="text-align:right;">
+34.77771
+</td>
+<td style="text-align:right;">
+68.46326
+</td>
+<td style="text-align:right;">
+29.06982
+</td>
+<td style="text-align:right;">
+81.90608
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Aug 2020
+</td>
+<td style="text-align:right;">
+52.25517
+</td>
+<td style="text-align:right;">
+34.39779
+</td>
+<td style="text-align:right;">
+72.96673
+</td>
+<td style="text-align:right;">
+28.18943
+</td>
+<td style="text-align:right;">
+89.03673
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sep 2020
+</td>
+<td style="text-align:right;">
+53.70542
+</td>
+<td style="text-align:right;">
+33.83177
+</td>
+<td style="text-align:right;">
+77.08906
+</td>
+<td style="text-align:right;">
+27.20543
+</td>
+<td style="text-align:right;">
+95.86538
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Oct 2020
+</td>
+<td style="text-align:right;">
+55.27884
+</td>
+<td style="text-align:right;">
+33.36538
+</td>
+<td style="text-align:right;">
+81.42163
+</td>
+<td style="text-align:right;">
+26.34790
+</td>
+<td style="text-align:right;">
+103.10743
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Nov 2020
+</td>
+<td style="text-align:right;">
+57.33031
+</td>
+<td style="text-align:right;">
+33.19494
+</td>
+<td style="text-align:right;">
+86.51009
+</td>
+<td style="text-align:right;">
+25.76111
+</td>
+<td style="text-align:right;">
+111.47410
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dec 2020
+</td>
+<td style="text-align:right;">
+59.34307
+</td>
+<td style="text-align:right;">
+33.00008
+</td>
+<td style="text-align:right;">
+91.60383
+</td>
+<td style="text-align:right;">
+25.18572
+</td>
+<td style="text-align:right;">
+120.02567
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Jan 2021
+</td>
+<td style="text-align:right;">
+60.05062
+</td>
+<td style="text-align:right;">
+32.10770
+</td>
+<td style="text-align:right;">
+94.69802
+</td>
+<td style="text-align:right;">
+24.11452
+</td>
+<td style="text-align:right;">
+126.08730
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Feb 2021
+</td>
+<td style="text-align:right;">
+62.57779
+</td>
+<td style="text-align:right;">
+32.20530
+</td>
+<td style="text-align:right;">
+100.69225
+</td>
+<td style="text-align:right;">
+23.81719
+</td>
+<td style="text-align:right;">
+136.15477
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mar 2021
+</td>
+<td style="text-align:right;">
+65.39217
+</td>
+<td style="text-align:right;">
+32.42611
+</td>
+<td style="text-align:right;">
+107.24466
+</td>
+<td style="text-align:right;">
+23.62635
+</td>
+<td style="text-align:right;">
+147.18853
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Apr 2021
+</td>
+<td style="text-align:right;">
+60.95154
+</td>
+<td style="text-align:right;">
+29.15007
+</td>
+<td style="text-align:right;">
+101.78280
+</td>
+<td style="text-align:right;">
+20.93664
+</td>
+<td style="text-align:right;">
+141.71214
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+May 2021
+</td>
+<td style="text-align:right;">
+60.32208
+</td>
+<td style="text-align:right;">
+27.84954
+</td>
+<td style="text-align:right;">
+102.47334
+</td>
+<td style="text-align:right;">
+19.72703
+</td>
+<td style="text-align:right;">
+144.66625
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Jun 2021
+</td>
+<td style="text-align:right;">
+59.62897
+</td>
+<td style="text-align:right;">
+26.59894
+</td>
+<td style="text-align:right;">
+102.96202
+</td>
+<td style="text-align:right;">
+18.59002
+</td>
+<td style="text-align:right;">
+147.31999
+</td>
+</tr>
+</tbody>
+</table>
+<p>Análise Residual Residual</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="analise-pretitiva.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">checkresiduals</span>(STL)</span></code></pre></div>
+<pre><code>## Warning in checkresiduals(STL): The fitted degrees of freedom is based on the
+## model used for the seasonally adjusted data.</code></pre>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<pre><code>## 
+##  Ljung-Box test
+## 
+## data:  Residuals from STL +  ETS(A,Ad,N)
+## Q* = 48.492, df = 19, p-value = 0.0002177
+## 
+## Model df: 5.   Total lags used: 24</code></pre>
+</div>
+<div id="nnar" class="section level3" number="0.5.4">
+<h3><span class="header-section-number">0.5.4</span> NNAR</h3>
+<p>Neural Network AutoRegression</p>
+<p>Com os dados da série temporal, os valores dos Lags da série temporal podem ser usados como entradas para uma rede neural, assim como usamos valores defasados em um modelo de autoregressão linear. Chamamos isso de uma rede neural de autorressões ou modelo NNAR.</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="analise-pretitiva.html#cb47-1" aria-hidden="true" tabindex="-1"></a>NNAR <span class="ot">&lt;-</span> <span class="fu">forecast</span>(<span class="fu">nnetar</span>(treino), <span class="at">h =</span> <span class="dv">18</span>)</span>
+<span id="cb47-2"><a href="analise-pretitiva.html#cb47-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-3"><a href="analise-pretitiva.html#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(v) <span class="sc">+</span> <span class="fu">autolayer</span>(NNAR,<span class="at">PI =</span> F) <span class="sc">+</span></span>
+<span id="cb47-4"><a href="analise-pretitiva.html#cb47-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">&quot;Modelo de Previsão: NNAR &quot;</span>) <span class="sc">+</span></span>
+<span id="cb47-5"><a href="analise-pretitiva.html#cb47-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Preço do Milho em Reais (60 kg)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb47-6"><a href="analise-pretitiva.html#cb47-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Ano&quot;</span>) <span class="sc">+</span></span>
+<span id="cb47-7"><a href="analise-pretitiva.html#cb47-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+</div>
+<div id="tbats" class="section level3" number="0.5.5">
+<h3><span class="header-section-number">0.5.5</span> TBATS</h3>
+<p>Exponential Smoothing Method + Box-Cox Transformation + ARMA model for residuals + Trigonometric Seasonal</p>
+<p>É um método de previsão para modelar dados de séries temporáveis. O principal objetivo disso é prever séries temporizadas com padrões sazonais complexos usando suavização exponencial.Além disso é um modelo híbrido que utiliza de outros metodos de previsão.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="analise-pretitiva.html#cb48-1" aria-hidden="true" tabindex="-1"></a>TBATS <span class="ot">&lt;-</span> <span class="fu">forecast</span>(<span class="fu">tbats</span>(treino, <span class="at">biasadj =</span> <span class="cn">TRUE</span>), <span class="at">h =</span> <span class="dv">18</span>)</span>
+<span id="cb48-2"><a href="analise-pretitiva.html#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-3"><a href="analise-pretitiva.html#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(v) <span class="sc">+</span> <span class="fu">autolayer</span>(TBATS,<span class="at">PI=</span>F) <span class="sc">+</span> </span>
+<span id="cb48-4"><a href="analise-pretitiva.html#cb48-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">&quot;Modelo de Previsão: TBATS &quot;</span>) <span class="sc">+</span></span>
+<span id="cb48-5"><a href="analise-pretitiva.html#cb48-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Reais&quot;</span>) <span class="sc">+</span></span>
+<span id="cb48-6"><a href="analise-pretitiva.html#cb48-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Ano&quot;</span>) <span class="sc">+</span></span>
+<span id="cb48-7"><a href="analise-pretitiva.html#cb48-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="analise-pretitiva.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(v) <span class="sc">+</span> <span class="fu">autolayer</span>(TBATS,<span class="at">PI=</span>T) <span class="sc">+</span> </span>
+<span id="cb49-2"><a href="analise-pretitiva.html#cb49-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">&quot;Modelo de Previsão: TBATS &quot;</span>) <span class="sc">+</span></span>
+<span id="cb49-3"><a href="analise-pretitiva.html#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Reais&quot;</span>) <span class="sc">+</span></span>
+<span id="cb49-4"><a href="analise-pretitiva.html#cb49-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Ano&quot;</span>) <span class="sc">+</span></span>
+<span id="cb49-5"><a href="analise-pretitiva.html#cb49-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="analise-pretitiva.html#cb50-1" aria-hidden="true" tabindex="-1"></a>stb <span class="ot">&lt;-</span> <span class="fu">summary</span>(TBATS)</span>
+<span id="cb50-2"><a href="analise-pretitiva.html#cb50-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-3"><a href="analise-pretitiva.html#cb50-3" aria-hidden="true" tabindex="-1"></a>stb<span class="sc">$</span>model</span></code></pre></div>
+<pre><code>## BATS(0, {0,0}, -, -)
+## 
+## Call: tbats(y = treino, biasadj = TRUE)
+## 
+## Parameters
+##   Lambda: 2e-06
+##   Alpha: 1.288858
+## 
+## Seed States:
+##          [,1]
+## [1,] 2.923271
+## attr(,&quot;lambda&quot;)
+## [1] 1.862661e-06
+## 
+## Sigma: 0.068008
+## AIC: 1161.805</code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="analise-pretitiva.html#cb52-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(stb)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Point Forecast
+</th>
+<th style="text-align:right;">
+Lo 80
+</th>
+<th style="text-align:right;">
+Hi 80
+</th>
+<th style="text-align:right;">
+Lo 95
+</th>
+<th style="text-align:right;">
+Hi 95
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Jan 2020
+</td>
+<td style="text-align:right;">
+49.18811
+</td>
+<td style="text-align:right;">
+44.97860
+</td>
+<td style="text-align:right;">
+53.54365
+</td>
+<td style="text-align:right;">
+42.95056
+</td>
+<td style="text-align:right;">
+56.07187
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Feb 2020
+</td>
+<td style="text-align:right;">
+49.37662
+</td>
+<td style="text-align:right;">
+42.57067
+</td>
+<td style="text-align:right;">
+56.57225
+</td>
+<td style="text-align:right;">
+39.48424
+</td>
+<td style="text-align:right;">
+60.99441
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mar 2020
+</td>
+<td style="text-align:right;">
+49.56514
+</td>
+<td style="text-align:right;">
+40.94153
+</td>
+<td style="text-align:right;">
+58.82335
+</td>
+<td style="text-align:right;">
+37.19689
+</td>
+<td style="text-align:right;">
+64.74515
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Apr 2020
+</td>
+<td style="text-align:right;">
+49.75366
+</td>
+<td style="text-align:right;">
+39.65237
+</td>
+<td style="text-align:right;">
+60.73579
+</td>
+<td style="text-align:right;">
+35.42062
+</td>
+<td style="text-align:right;">
+67.99198
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+May 2020
+</td>
+<td style="text-align:right;">
+49.94217
+</td>
+<td style="text-align:right;">
+38.56586
+</td>
+<td style="text-align:right;">
+62.44689
+</td>
+<td style="text-align:right;">
+33.94710
+</td>
+<td style="text-align:right;">
+70.94326
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Jun 2020
+</td>
+<td style="text-align:right;">
+50.13069
+</td>
+<td style="text-align:right;">
+37.61760
+</td>
+<td style="text-align:right;">
+64.02105
+</td>
+<td style="text-align:right;">
+32.67888
+</td>
+<td style="text-align:right;">
+73.69647
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Jul 2020
+</td>
+<td style="text-align:right;">
+50.31921
+</td>
+<td style="text-align:right;">
+36.77124
+</td>
+<td style="text-align:right;">
+65.49462
+</td>
+<td style="text-align:right;">
+31.56113
+</td>
+<td style="text-align:right;">
+76.30644
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Aug 2020
+</td>
+<td style="text-align:right;">
+50.50772
+</td>
+<td style="text-align:right;">
+36.00390
+</td>
+<td style="text-align:right;">
+66.89047
+</td>
+<td style="text-align:right;">
+30.55946
+</td>
+<td style="text-align:right;">
+78.80760
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sep 2020
+</td>
+<td style="text-align:right;">
+50.69624
+</td>
+<td style="text-align:right;">
+35.30010
+</td>
+<td style="text-align:right;">
+68.22411
+</td>
+<td style="text-align:right;">
+29.65059
+</td>
+<td style="text-align:right;">
+81.22324
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Oct 2020
+</td>
+<td style="text-align:right;">
+50.88476
+</td>
+<td style="text-align:right;">
+34.64877
+</td>
+<td style="text-align:right;">
+69.50659
+</td>
+<td style="text-align:right;">
+28.81799
+</td>
+<td style="text-align:right;">
+83.56993
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Nov 2020
+</td>
+<td style="text-align:right;">
+51.07327
+</td>
+<td style="text-align:right;">
+34.04168
+</td>
+<td style="text-align:right;">
+70.74615
+</td>
+<td style="text-align:right;">
+28.04936
+</td>
+<td style="text-align:right;">
+85.85997
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dec 2020
+</td>
+<td style="text-align:right;">
+51.26179
+</td>
+<td style="text-align:right;">
+33.47252
+</td>
+<td style="text-align:right;">
+71.94910
+</td>
+<td style="text-align:right;">
+27.33531
+</td>
+<td style="text-align:right;">
+88.10277
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Jan 2021
+</td>
+<td style="text-align:right;">
+51.45031
+</td>
+<td style="text-align:right;">
+32.93633
+</td>
+<td style="text-align:right;">
+73.12040
+</td>
+<td style="text-align:right;">
+26.66848
+</td>
+<td style="text-align:right;">
+90.30574
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Feb 2021
+</td>
+<td style="text-align:right;">
+51.63883
+</td>
+<td style="text-align:right;">
+32.42912
+</td>
+<td style="text-align:right;">
+74.26405
+</td>
+<td style="text-align:right;">
+26.04295
+</td>
+<td style="text-align:right;">
+92.47479
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mar 2021
+</td>
+<td style="text-align:right;">
+51.82734
+</td>
+<td style="text-align:right;">
+31.94763
+</td>
+<td style="text-align:right;">
+75.38330
+</td>
+<td style="text-align:right;">
+25.45392
+</td>
+<td style="text-align:right;">
+94.61476
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Apr 2021
+</td>
+<td style="text-align:right;">
+52.01586
+</td>
+<td style="text-align:right;">
+31.48916
+</td>
+<td style="text-align:right;">
+76.48086
+</td>
+<td style="text-align:right;">
+24.89739
+</td>
+<td style="text-align:right;">
+96.72966
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+May 2021
+</td>
+<td style="text-align:right;">
+52.20438
+</td>
+<td style="text-align:right;">
+31.05143
+</td>
+<td style="text-align:right;">
+77.55900
+</td>
+<td style="text-align:right;">
+24.37003
+</td>
+<td style="text-align:right;">
+98.82285
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Jun 2021
+</td>
+<td style="text-align:right;">
+52.39289
+</td>
+<td style="text-align:right;">
+30.63251
+</td>
+<td style="text-align:right;">
+78.61966
+</td>
+<td style="text-align:right;">
+23.86901
+</td>
+<td style="text-align:right;">
+100.89718
+</td>
+</tr>
+</tbody>
+</table>
+<p>Análise Residual Residual</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="analise-pretitiva.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">checkresiduals</span>(STL)</span></code></pre></div>
+<pre><code>## Warning in checkresiduals(STL): The fitted degrees of freedom is based on the
+## model used for the seasonally adjusted data.</code></pre>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<pre><code>## 
+##  Ljung-Box test
+## 
+## data:  Residuals from STL +  ETS(A,Ad,N)
+## Q* = 48.492, df = 19, p-value = 0.0002177
+## 
+## Model df: 5.   Total lags used: 24</code></pre>
+</div>
+<div id="combination" class="section level3" number="0.5.6">
+<h3><span class="header-section-number">0.5.6</span> Combination</h3>
+<p>É um metodo que utilza o valor dois pontos de previção e faz uma média entre eles para</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="analise-pretitiva.html#cb56-1" aria-hidden="true" tabindex="-1"></a>Combination <span class="ot">&lt;-</span> (ETS[[<span class="st">&quot;mean&quot;</span>]] <span class="sc">+</span> ARIMA[[<span class="st">&quot;mean&quot;</span>]] <span class="sc">+</span> STL[[<span class="st">&quot;mean&quot;</span>]] <span class="sc">+</span> NNAR[[<span class="st">&quot;mean&quot;</span>]] <span class="sc">+</span> </span>
+<span id="cb56-2"><a href="analise-pretitiva.html#cb56-2" aria-hidden="true" tabindex="-1"></a>    TBATS[[<span class="st">&quot;mean&quot;</span>]])<span class="sc">/</span><span class="dv">5</span></span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="analise-pretitiva.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(v) <span class="sc">+</span> <span class="fu">autolayer</span>(Combination,<span class="at">PI=</span>F) <span class="sc">+</span> </span>
+<span id="cb57-2"><a href="analise-pretitiva.html#cb57-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Modelo de Previsão: Combinação &quot;</span>) <span class="sc">+</span></span>
+<span id="cb57-3"><a href="analise-pretitiva.html#cb57-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Reais&quot;</span>) <span class="sc">+</span></span>
+<span id="cb57-4"><a href="analise-pretitiva.html#cb57-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Ano&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb57-5"><a href="analise-pretitiva.html#cb57-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<pre><code>## Warning: Ignoring unknown parameters: PI</code></pre>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+</div>
+<div id="todas-a-previsões-juntas" class="section level3" number="0.5.7">
+<h3><span class="header-section-number">0.5.7</span> Todas a Previsões juntas</h3>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="analise-pretitiva.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(df_ts) <span class="sc">+</span> <span class="fu">autolayer</span>(ETS, <span class="at">series =</span> <span class="st">&quot;ETS&quot;</span>, <span class="at">PI =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="fu">autolayer</span>(ARIMA, </span>
+<span id="cb59-2"><a href="analise-pretitiva.html#cb59-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">series =</span> <span class="st">&quot;ARIMA&quot;</span>, <span class="at">PI =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="fu">autolayer</span>(STL, <span class="at">series =</span> <span class="st">&quot;STL&quot;</span>, <span class="at">PI =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> </span>
+<span id="cb59-3"><a href="analise-pretitiva.html#cb59-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">autolayer</span>(NNAR, <span class="at">series =</span> <span class="st">&quot;NNAR&quot;</span>, <span class="at">PI =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="fu">autolayer</span>(TBATS, <span class="at">series =</span> <span class="st">&quot;TBATS&quot;</span>, </span>
+<span id="cb59-4"><a href="analise-pretitiva.html#cb59-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">PI =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="fu">autolayer</span>(Combination, <span class="at">series =</span> <span class="st">&quot;Combination&quot;</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">&quot;Ano&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb59-5"><a href="analise-pretitiva.html#cb59-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">&quot;Reais&quot;</span>) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;Previsão do preço do Milho &quot;</span>) <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+</div>
+<div id="acurácia-das-previsões" class="section level3" number="0.5.8">
+<h3><span class="header-section-number">0.5.8</span> Acurácia das previsões</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+ETS
+</td>
+<td style="text-align:right;">
+22.61776
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ARIMA
+</td>
+<td style="text-align:right;">
+20.52142
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+STL-ETS
+</td>
+<td style="text-align:right;">
+19.52899
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NNAR
+</td>
+<td style="text-align:right;">
+38.36219
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TBATS
+</td>
+<td style="text-align:right;">
+25.53900
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Combination
+</td>
+<td style="text-align:right;">
+25.09519
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="analise-grafica.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="conclusão.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/thalisreboucas/Forecastingcorn/edit/master/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/thalisreboucas/Forecastingcorn/blob/master/index.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
